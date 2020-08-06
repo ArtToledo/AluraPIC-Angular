@@ -1,5 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
 import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
+import { ErrorsModule } from './errors/errors.module';
+import { PhotosModule } from './photos/photos.module';
+import { VMessageModule } from './shared/components/vmessage/vmessage.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -7,6 +13,13 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        PhotosModule,
+        ErrorsModule,
+        VMessageModule,
+        CoreModule,
+        RouterTestingModule.withRoutes([])
+      ]
     }).compileComponents();
   }));
 
@@ -14,18 +27,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'alurapic'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('alurapic');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('alurapic app is running!');
   });
 });

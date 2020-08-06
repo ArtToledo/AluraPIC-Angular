@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map, switchMap } from 'rxjs/operators';
-import { pipe } from 'rxjs';
 
 @Component({
   selector: 'app-root',

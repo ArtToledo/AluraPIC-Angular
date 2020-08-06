@@ -64,7 +64,7 @@ export class SignUpComponent implements OnInit {
     this.platformDetectorService.isPlatformBrowser() && this.emailInput.nativeElement.focus();
   }
 
-  signup() {
+  signUp() {
     if (this.signupForm.invalid || !this.signupForm.pending) {
       const newUser = this.signupForm.getRawValue() as NewUser;
     
@@ -72,7 +72,9 @@ export class SignUpComponent implements OnInit {
         .signup(newUser)
         .subscribe(
           () => this.router.navigate(['']),
-          err => console.log(err)
+          (err) => {
+            console.log(err);
+          }
       );
     }
   }
